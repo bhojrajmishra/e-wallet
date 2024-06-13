@@ -23,12 +23,13 @@ const userLogin = async (req, res) => {
 
   const accessToken = jwt.sign(
     {
+      _id: getUserForAccessToken._id,
       email: getUserForAccessToken.email,
       name: getUserForAccessToken.name,
     },
     process.env.jwt_salt,
     {
-      expiresIn: "1h",
+      expiresIn: "90 days",
     }
   );
 
